@@ -1,12 +1,17 @@
 import { createContext, useState } from "react";
-export const CatogoryIdForProducts = createContext();
+export const CatogoryForProducts = createContext();
 
 const Context = ({ children }) => {
-  const [categoryId, setCategoryId] = useState(151); //default id is for Skin Category
+  const [selectedCategory, setSelectedCategory] = useState({
+    categoryId: "151",
+    categoryName: "Skin",
+  }); //default Category is Skin
   return (
-    <CatogoryIdForProducts.Provider value={{ categoryId, setCategoryId }}>
+    <CatogoryForProducts.Provider
+      value={{ selectedCategory, setSelectedCategory }}
+    >
       {children}
-    </CatogoryIdForProducts.Provider>
+    </CatogoryForProducts.Provider>
   );
 };
 

@@ -4,7 +4,6 @@ import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 
 const ProductCard = ({ product }) => {
-  console.log("product.rating-> ", product.rating);
   return (
     <div className="productCardStyles">
       <Grid container>

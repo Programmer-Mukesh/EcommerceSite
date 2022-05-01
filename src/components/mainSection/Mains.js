@@ -3,6 +3,13 @@ import axios from "axios";
 import Categories from "./category/Categories";
 import Products from "./products/Products";
 import "../../styles/productCard.scss";
+import { Container } from "@mui/material";
+
+const containerStyles = {
+  "@media(max-width:767px)": {
+    padding: "0px",
+  },
+};
 
 const Mains = () => {
   const [categoryData, setCategoryData] = useState([]);
@@ -23,12 +30,12 @@ const Mains = () => {
   }, []);
 
   return (
-    <div>
+    <Container sx={containerStyles}>
       <Categories categoryData={categoryData} />
       <div className="productContainer">
-        <Products />
+        <Products categoryData={categoryData} />
       </div>
-    </div>
+    </Container>
   );
 };
 

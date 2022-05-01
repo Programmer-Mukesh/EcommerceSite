@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { CatogoryIdForProducts } from "../../../Context";
+import { CatogoryForProducts } from "../../../Context";
 
 const CategoryCard = ({ category }) => {
-  const { setCategoryId } = useContext(CatogoryIdForProducts);
+  const { setSelectedCategory } = useContext(CatogoryForProducts);
   return (
     <div
       className="category-card-wrapper"
@@ -12,7 +12,12 @@ const CategoryCard = ({ category }) => {
         backgroundPosition: "center",
         backgroundSize: "150px 90px",
       }}
-      onClick={() => setCategoryId(category.category_id)}
+      onClick={() =>
+        setSelectedCategory({
+          categoryId: category.category_id,
+          categoryName: category.category_name,
+        })
+      }
     >
       <div className="categoryName">{category.category_name}</div>
     </div>
