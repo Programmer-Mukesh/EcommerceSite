@@ -72,13 +72,11 @@
   .Footer {
     height: 56px;
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 60% 40%;
     padding: 0px 16px;
     column-gap: 10px;
-    box-shadow: 0 0 1px 0 rgb(0 0 0 / 16%);
     @media (min-width: 767px) {
       grid-template-columns: 50% 50%;
-      box-shadow: none;
     }
     .dropDownClass {
       padding: 24px 5px;
