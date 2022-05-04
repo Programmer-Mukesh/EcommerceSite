@@ -1,8 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { CatogoryForProducts } from "../../../Context";
 
 const CategoryCard = ({ category }) => {
-  const { setSelectedCategory } = useContext(CatogoryForProducts);
+  const { selectedCategory, setSelectedCategory } =
+    useContext(CatogoryForProducts);
+
+  useEffect(() => {
+    let ele = document.getElementById(`${selectedCategory.categoryName}`);
+    if (ele) {
+      ele.scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+      });
+    }
+  }, [selectedCategory]);
+
   return (
     <div
       className="category-card-wrapper"
@@ -10,7 +22,7 @@ const CategoryCard = ({ category }) => {
         backgroundImage: `url(${category.category_image})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        backgroundSize: "150px 90px",
+        backgroundSize: "130px 80px",
       }}
       onClick={() =>
         setSelectedCategory({
@@ -18,6 +30,7 @@ const CategoryCard = ({ category }) => {
           categoryName: category.category_name,
         })
       }
+      id={category.category_name}
     >
       <div className="categoryName">{category.category_name}</div>
     </div>
